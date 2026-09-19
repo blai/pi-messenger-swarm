@@ -476,7 +476,7 @@ function wrapInputToLines(input: string, width: number, hint: string): string[] 
 }
 
 function renderMessageBar(input: string, width: number): string[] {
-  const isHash = input.startsWith('#');
-  const hint = isHash ? 'channel' : 'channel';
-  return wrapInputToLines(input, width, hint);
+  // All overlay message input is channel-addressed now (mentions and plain
+  // posts both target a channel), so the bar always labels itself "channel".
+  return wrapInputToLines(input, width, 'channel');
 }
